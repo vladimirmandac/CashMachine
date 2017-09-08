@@ -5,6 +5,8 @@
  */
 package cashmachine.gui;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author Vladimir Mandač
@@ -38,6 +40,7 @@ public class LoginForm extends javax.swing.JPanel {
         jButtonLogin = new javax.swing.JButton();
         jButtonRegister = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jCheckBoxShowPsw = new javax.swing.JCheckBox();
 
         setBackground(new java.awt.Color(153, 153, 153));
         setForeground(new java.awt.Color(60, 63, 65));
@@ -48,7 +51,7 @@ public class LoginForm extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("Login");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -60,18 +63,20 @@ public class LoginForm extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.insets = new java.awt.Insets(34, 295, 0, 0);
         add(jLabel2, gridBagConstraints);
 
         jComboBoxLogin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "User", "Administrator" }));
+        jComboBoxLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jComboBoxLogin.setMaximumSize(new java.awt.Dimension(159, 26));
+        jComboBoxLogin.setMinimumSize(new java.awt.Dimension(159, 26));
+        jComboBoxLogin.setPreferredSize(new java.awt.Dimension(159, 26));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 51;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(28, 15, 0, 0);
         add(jComboBoxLogin, gridBagConstraints);
@@ -81,8 +86,6 @@ public class LoginForm extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(9, 280, 0, 0);
         add(jLabel3, gridBagConstraints);
 
@@ -90,25 +93,33 @@ public class LoginForm extends javax.swing.JPanel {
         jLabel4.setText("Password:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(16, 280, 0, 0);
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.insets = new java.awt.Insets(14, 280, 0, 0);
         add(jLabel4, gridBagConstraints);
+
+        jPasswordFieldLogin.setMaximumSize(new java.awt.Dimension(159, 26));
+        jPasswordFieldLogin.setMinimumSize(new java.awt.Dimension(159, 26));
+        jPasswordFieldLogin.setPreferredSize(new java.awt.Dimension(159, 26));
+        jPasswordFieldLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordFieldLoginKeyPressed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 145;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(12, 15, 0, 0);
         add(jPasswordFieldLogin, gridBagConstraints);
+
+        jTextFieldLogin.setMaximumSize(new java.awt.Dimension(159, 26));
+        jTextFieldLogin.setMinimumSize(new java.awt.Dimension(159, 26));
+        jTextFieldLogin.setPreferredSize(new java.awt.Dimension(159, 26));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 145;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(4, 15, 0, 0);
         add(jTextFieldLogin, gridBagConstraints);
@@ -116,17 +127,17 @@ public class LoginForm extends javax.swing.JPanel {
         jButtonLogin.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jButtonLogin.setForeground(new java.awt.Color(51, 51, 255));
         jButtonLogin.setText("Login");
-        jButtonLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLoginActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 15, 207, 0);
+        gridBagConstraints.insets = new java.awt.Insets(10, 15, 207, 0);
         add(jButtonLogin, gridBagConstraints);
 
         jButtonRegister.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -134,11 +145,11 @@ public class LoginForm extends javax.swing.JPanel {
         jButtonRegister.setText("Register");
         jButtonRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.ipadx = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 11, 207, 0);
+        gridBagConstraints.insets = new java.awt.Insets(10, 11, 207, 0);
         add(jButtonRegister, gridBagConstraints);
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -151,17 +162,49 @@ public class LoginForm extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 6);
         add(jLabel5, gridBagConstraints);
+
+        jCheckBoxShowPsw.setText("Show Password");
+        jCheckBoxShowPsw.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxShowPswActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 12, 0, 0);
+        add(jCheckBoxShowPsw, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
+        
         cashmachine.staticHelper.StaticMethods.login(jComboBoxLogin, jTextFieldLogin, jPasswordFieldLogin);
     }//GEN-LAST:event_jButtonLoginActionPerformed
+
+    private void jCheckBoxShowPswActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxShowPswActionPerformed
+        // TODO add your handling code here:
+        if (jCheckBoxShowPsw.isSelected()) {
+            jPasswordFieldLogin.setEchoChar((char)0);
+        } else {
+            jPasswordFieldLogin.setEchoChar('*');
+        }
+    }//GEN-LAST:event_jCheckBoxShowPswActionPerformed
+
+    private void jPasswordFieldLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldLoginKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            cashmachine.staticHelper.StaticMethods.login(jComboBoxLogin, jTextFieldLogin, jPasswordFieldLogin);
+        }
+    }//GEN-LAST:event_jPasswordFieldLoginKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JButton jButtonRegister;
+    private javax.swing.JCheckBox jCheckBoxShowPsw;
     private javax.swing.JComboBox<String> jComboBoxLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
