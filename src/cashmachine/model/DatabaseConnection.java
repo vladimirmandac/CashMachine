@@ -21,15 +21,15 @@ public class DatabaseConnection {
     public static String databaseUser = "root";
     public static String databasePassword = "Nikolica2004@";
     
-    // remote server
-//    public static String server = "jdbc:mysql://sql12.freemysqlhosting.net/";
+    // remote server 1
+//    public static String server = "jdbc:mysql://sql12.freemysqlhosting.net:3306/";
 //    public static String port = "3306";
 //    public static String database = "sql12192580";
 //    public static String databaseUser = "sql12192580";
 //    public static String databasePassword = "Nikolica2004@";
 
     // connection with database
-    public  void connectionToDatabase() throws SQLException {
+    public void connectionToDatabase() throws SQLException {
          connecion = DriverManager.getConnection(server + database , databaseUser, databasePassword);
     }    
 }

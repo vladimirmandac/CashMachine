@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cashmachine.gui;
 
 import java.awt.Toolkit;
+import javax.swing.JPanel;
 
 /**
  *
@@ -22,6 +18,7 @@ public class MainFormJFrame extends javax.swing.JFrame {
     public MainFormJFrame() {
         cashMachine = this;
         initComponents();
+        changePanel(new LoginForm());
         setIcon();
         this.setTitle("Cash Machine v1.0");
         this.setExtendedState(MainFormJFrame.MAXIMIZED_BOTH);
@@ -37,7 +34,7 @@ public class MainFormJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setMinimumSize(new java.awt.Dimension(800, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,4 +92,9 @@ public class MainFormJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+
+    public void changePanel(JPanel panel) {
+        setContentPane(panel);
+        revalidate();
+    }
 }
