@@ -1,15 +1,19 @@
-package cashmachine.gui;
+package cashmachine.gui.user;
+
+import cashmachine.gui.LoginForm;
+import cashmachine.gui.MainFormJFrame;
 
 /**
  *
  * @author Vladimir Mandač
  */
-public class UpdateSystemPanel extends javax.swing.JPanel {
+public class UserPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form UpdateSystemPanel
+     * Creates new form UserPanel
      */
-    public UpdateSystemPanel() {
+    
+    public UserPanel() {
         initComponents();
     }
 
@@ -25,9 +29,10 @@ public class UpdateSystemPanel extends javax.swing.JPanel {
 
         jButton1 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(153, 0, 0));
+        setBackground(new java.awt.Color(0, 153, 0));
         setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
         setMinimumSize(new java.awt.Dimension(798, 598));
+        setPreferredSize(new java.awt.Dimension(798, 598));
         setLayout(new java.awt.GridBagLayout());
 
         jButton1.setText("Back to login page");
@@ -41,7 +46,7 @@ public class UpdateSystemPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(283, 332, 283, 332);
+        gridBagConstraints.insets = new java.awt.Insets(242, 327, 324, 337);
         add(jButton1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 

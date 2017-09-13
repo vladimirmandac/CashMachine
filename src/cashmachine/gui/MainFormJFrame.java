@@ -1,5 +1,7 @@
 package cashmachine.gui;
 
+import static cashmachine.staticHelper.StaticAttributes.softwareVersion;
+import java.awt.BorderLayout;
 import java.awt.Toolkit;
 import javax.swing.JPanel;
 
@@ -18,9 +20,9 @@ public class MainFormJFrame extends javax.swing.JFrame {
     public MainFormJFrame() {
         cashMachine = this;
         initComponents();
-        changePanel(new LoginForm());
+        cashmachine.system.SystemUpdate.checkSystemUpdate(softwareVersion);
         setIcon();
-        this.setTitle("Cash Machine v1.0");
+        this.setTitle("Cash Machine " + softwareVersion);
         this.setExtendedState(MainFormJFrame.MAXIMIZED_BOTH);
     }
 

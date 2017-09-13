@@ -21,6 +21,13 @@ public class DatabaseConnection {
     public static String databaseUser = "root";
     public static String databasePassword = "Nikolica2004@";
     
+    // localhost
+//    public static String server = "jdbc:mysql://localhost:3306/";
+//    public static String port = "3306";
+//    public static String database = "register_form";
+//    public static String databaseUser = "root";
+//    public static String databasePassword = "Nikolica2004@";
+    
     // remote server 1
 //    public static String server = "jdbc:mysql://sql12.freemysqlhosting.net:3306/";
 //    public static String port = "3306";
