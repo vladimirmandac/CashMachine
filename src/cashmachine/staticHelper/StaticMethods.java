@@ -1,8 +1,6 @@
 package cashmachine.staticHelper;
 
 import cashmachine.gui.administrator.AdministratorPanel;
-import static cashmachine.gui.LoginForm.jCheckBoxShowPsw;
-import cashmachine.gui.MainFormJFrame;
 import cashmachine.gui.user.UserPanel;
 import java.awt.Color;
 import java.sql.Connection;
@@ -15,6 +13,18 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+import static cashmachine.gui.LoginPanel.jCheckBoxShowPswL;
+import cashmachine.gui.MainFormJFrame;
+import static cashmachine.gui.RegisterPanel.jComboBoxCountry;
+import cashmachine.gui.SplashScreen;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.internet.*;
+import javax.mail.*;
 
 /**
  *
@@ -60,26 +70,6 @@ public class StaticMethods {
                         break;
                     }
                     
-                    else if (username.equals(b.getText().isEmpty()) && password.equals(c.getText())) {
-                        JOptionPane.showMessageDialog(null, "Must enter username.", "Error", JOptionPane.ERROR_MESSAGE);
-                        Border changeBorderUsername = BorderFactory.createLineBorder(Color.red, 2);
-                        b.setBorder(changeBorderUsername);
-                        Border defaultBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
-                        c.setBorder(defaultBorder);
-                        b.requestFocus();
-                        break;
-                    }
-                    
-                    else if (username.equals(b.getText()) && password.equals(c.getText().isEmpty())) {
-                        JOptionPane.showMessageDialog(null, "Must enter password.", "Error", JOptionPane.ERROR_MESSAGE);
-                        Border changeBorderPassword = BorderFactory.createLineBorder(Color.red, 2);
-                        c.setBorder(changeBorderPassword);
-                        Border defaultBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
-                        b.setBorder(defaultBorder);
-                        c.requestFocus();
-                        break;
-                    }
-                    
                     else {
                         System.out.println("");
                     }
@@ -87,18 +77,14 @@ public class StaticMethods {
                 
                 if (!rs.next()) {
                     b.setText("Wrong username ..");
-                    jCheckBoxShowPsw.setSelected(true);
+                    jCheckBoxShowPswL.setSelected(true);
                     c.setEchoChar((char)0);
                     c.setText(".. or wrong password!");
                     b.setForeground(Color.red);
                     c.setForeground(Color.red);
-//                    JOptionPane.showMessageDialog(null, "The username or password you entered is not correct. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
-//                    b.setText("");
-//                    c.setText("");
                     Border changeBorder = BorderFactory.createLineBorder(Color.red, 2);
                     b.setBorder(changeBorder);
                     c.setBorder(changeBorder);
-
                     b.requestFocus();
                 }
             } catch (SQLException ex) {
@@ -106,5 +92,133 @@ public class StaticMethods {
             }
         }
         return b.getText();
+    }
+    
+    // Method for registering a new user
+//    public static void registerNewUser() {
+//        
+//    }
+    
+    // Method for retrieving data from database column(countries.country) and display in JcomboBox
+    public static void countryJcBFillData() {
+        try {
+            Connection connection = SingletonConnection.getConnection();
+                
+                Statement statement = connection.createStatement();
+                String queryString = ("SELECT `country` FROM countries");
+                ResultSet rs = statement.executeQuery(queryString);
+                
+                String countries;
+                
+                while (rs.next()) {
+                    countries = rs.getString(1);
+                    jComboBoxCountry.addItem(countries);
+                }
+                
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
+    
+    // Method to open hyperlink in browser after click
+    public static void clickOnHyperlink() {
+        try {
+            // Click to jLabelDeveloper from footer
+            String strURL = "https://goo.gl/nXcjBn";    
+            Desktop.getDesktop().browse(URI.create(strURL));
+        } catch (IOException ex) {
+            Logger.getLogger(StaticMethods.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
+    
+    // Method for splash screen
+    public static void startSplashScreen() {
+        
+        SplashScreen splashScreen = new SplashScreen();
+        MainFormJFrame mainFormJFrame = new MainFormJFrame();
+        
+        splashScreen.setVisible(true);
+        mainFormJFrame.setVisible(false);
+        
+        try {
+            for (int i = 0; i <= 100; i++) {
+//                Thread.sleep(100);
+                Thread.sleep(30);
+                
+                SplashScreen.jLabelLoading.setText(Integer.toString(i) + "%");
+                SplashScreen.jProgressBarLoading.setValue(i);
+                
+                if (i > 2 && i <= 23) {
+                    SplashScreen.jLabelChecking.setText("Loading Modules...");
+                }
+                else if (i > 23 && i <= 30) {
+                    SplashScreen.jLabelChecking.setText("Loading Modules done...");
+                }
+                else if (i > 30 && i <= 60) {
+                    SplashScreen.jLabelChecking.setText("Checking system...");
+                }
+                else if (i > 60 && i <= 85) {
+                    SplashScreen.jLabelChecking.setText("Checking system updates...");
+                }
+                else if (i > 85 && i <= 92) {
+                    SplashScreen.jLabelChecking.setText("Checking system done...");
+                }
+                else if (i > 92 && i <= 99) {
+                    SplashScreen.jLabelChecking.setText("Starting system...");
+                }
+                else if (i == 100) {
+                    splashScreen.setVisible(false);
+                    mainFormJFrame.setVisible(true);
+                }
+            }
+        } catch (InterruptedException ex) {
+            System.out.println(ex);
+            SplashScreen.jPanelErrorMsg.setVisible(true);
+            SplashScreen.jLabelErrorMsg.setText("An unexpected error occurred, please try later.");
+        }
+    }
+    
+    // Method for configuring email client
+    public static void emailClient(String to, String emailFromSystem, String emailPassword, 
+            String emailSubject, String messageFromSystem /* ,String forgotenPsw*/ ) throws SQLException {
+        
+//        try {
+//            Connection connection = SingletonConnection.getConnection();
+//            Statement statement = connection.createStatement();
+//                String queryString = ("SELECT `email`, `emailpassword` FROM admins");
+//                ResultSet rs = statement.executeQuery(queryString);
+//
+//                while (rs.first()) {
+//
+//                emailFromSystem = rs.getString(1);
+//                emailPassword = rs.getString(2);
+//                }
+//        } catch (SQLException ex) {
+//            System.out.println(ex);
+//        }
+        
+        // Get the session object
+        Properties properties = new Properties();
+        properties.put("mail.smtp.host" , "smtp.gmail.com");
+        properties.put("mail.smtp.socketFactory.port", "465");
+        properties.put("mail.smtp.socketFactory.class" , "javax.net.ssl.SSLSocketFactory");
+        properties.put("mail.smtp.auth" , "true");
+        properties.put("mail.smtp.port" , "465");
+        
+        Session session = Session.getDefaultInstance(properties, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(emailFromSystem, emailPassword);
+            }
+        });
+        
+        // Compose message
+        try {
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(emailFromSystem));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            message.setSubject(emailSubject);
+            message.setText(messageFromSystem);
+        } catch (Exception e) {
+        }
     }
 }

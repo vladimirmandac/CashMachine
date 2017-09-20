@@ -1,7 +1,8 @@
 package cashmachine.gui.user;
 
-import cashmachine.gui.LoginForm;
+import cashmachine.gui.LoginPanel;
 import cashmachine.gui.MainFormJFrame;
+import static cashmachine.staticHelper.StaticMethods.clickOnHyperlink;
 
 /**
  *
@@ -28,11 +29,13 @@ public class UserPanel extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jButton1 = new javax.swing.JButton();
+        jLabelFooter = new javax.swing.JLabel();
+        jLabelDeveloper = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 153, 0));
         setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
-        setMinimumSize(new java.awt.Dimension(798, 598));
-        setPreferredSize(new java.awt.Dimension(798, 598));
+        setMinimumSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(800, 600));
         setLayout(new java.awt.GridBagLayout());
 
         jButton1.setText("Back to login page");
@@ -45,18 +48,53 @@ public class UserPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(242, 327, 324, 337);
+        gridBagConstraints.insets = new java.awt.Insets(281, 333, 0, 0);
         add(jButton1, gridBagConstraints);
+
+        jLabelFooter.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        jLabelFooter.setForeground(javax.swing.UIManager.getDefaults().getColor("Button.darcula.color1"));
+        jLabelFooter.setText("Cash Machine © 2017 - made by ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(270, 280, 0, 0);
+        add(jLabelFooter, gridBagConstraints);
+
+        jLabelDeveloper.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        jLabelDeveloper.setForeground(new java.awt.Color(0, 73, 147));
+        jLabelDeveloper.setText("Vladimir Mandac");
+        jLabelDeveloper.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelDeveloper.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelDeveloperMouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(270, 3, 0, 276);
+        add(jLabelDeveloper, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MainFormJFrame.cashMachine.changePanel(new LoginForm());
+        MainFormJFrame.cashMachine.changePanel(new LoginPanel());
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabelDeveloperMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelDeveloperMouseClicked
+        // TODO add your handling code here:
+        clickOnHyperlink();
+    }//GEN-LAST:event_jLabelDeveloperMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabelDeveloper;
+    private javax.swing.JLabel jLabelFooter;
     // End of variables declaration//GEN-END:variables
 }

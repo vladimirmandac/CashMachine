@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/G:/Projekti/CashMachine/src/cashmachine/gui/LoginForm.java</file>
+            <file>file:/F:/Projekti/CashMachine/src/cashmachine/staticHelper/StaticMethods.java</file>
+            <file>file:/F:/Projekti/CashMachine/src/cashmachine/gui/RegisterPanel.java</file>
+            <file>file:/F:/Projekti/CashMachine/src/cashmachine/staticHelper/StaticAttributes.java</file>
+            <file>file:/F:/Projekti/CashMachine/src/cashmachine/gui/MainFormJFrame.java</file>
+            <file>file:/F:/Projekti/CashMachine/src/cashmachine/gui/ForgotPassword.java</file>
+            <file>file:/F:/Projekti/CashMachine/src/cashmachine/gui/SplashScreen.java</file>
+            <file>file:/F:/Projekti/CashMachine/src/cashmachine/gui/LoginPanel.java</file>
         </group>
     </open-files>
 </project-private>

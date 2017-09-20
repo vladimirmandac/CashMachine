@@ -17,7 +17,7 @@ public class DatabaseConnection {
     // localhost
     public static String server = "jdbc:mysql://localhost:3306/";
     public static String port = "3306";
-    public static String database = "sql12192580";
+    public static String database = "cashmachine";
     public static String databaseUser = "root";
     public static String databasePassword = "Nikolica2004@";
     

@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cashmachine.gui.administrator;
 
-import cashmachine.gui.LoginForm;
+import cashmachine.gui.LoginPanel;
 import cashmachine.gui.MainFormJFrame;
+import static cashmachine.staticHelper.StaticMethods.clickOnHyperlink;
 
 /**
  *
@@ -32,12 +28,13 @@ public class AdministratorPanel extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jButton1 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        jLabelFooter = new javax.swing.JLabel();
+        jLabelDeveloper = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 51, 255));
+        setBackground(new java.awt.Color(0, 0, 204));
         setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
-        setMinimumSize(new java.awt.Dimension(798, 598));
+        setMinimumSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(800, 600));
         setLayout(new java.awt.GridBagLayout());
 
         jButton1.setText("Back to login page");
@@ -50,65 +47,53 @@ public class AdministratorPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(283, 332, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(292, 332, 0, 0);
         add(jButton1, gridBagConstraints);
 
-        jPanel1.setBackground(new java.awt.Color(0, 51, 255));
-        jPanel1.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
-        jPanel1.setMinimumSize(new java.awt.Dimension(798, 598));
-
-        jButton2.setText("Back to login page");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 798, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jButton2)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 598, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jButton2)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
+        jLabelFooter.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        jLabelFooter.setForeground(javax.swing.UIManager.getDefaults().getColor("Button.darcula.color1"));
+        jLabelFooter.setText("Cash Machine © 2017 - made by ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        add(jPanel1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(259, 282, 0, 0);
+        add(jLabelFooter, gridBagConstraints);
+
+        jLabelDeveloper.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        jLabelDeveloper.setForeground(new java.awt.Color(0, 73, 147));
+        jLabelDeveloper.setText("Vladimir Mandac");
+        jLabelDeveloper.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelDeveloper.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelDeveloperMouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(259, 3, 0, 274);
+        add(jLabelDeveloper, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MainFormJFrame.cashMachine.changePanel(new LoginForm());
+        MainFormJFrame.cashMachine.changePanel(new LoginPanel());
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jLabelDeveloperMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelDeveloperMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        clickOnHyperlink();
+    }//GEN-LAST:event_jLabelDeveloperMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabelDeveloper;
+    private javax.swing.JLabel jLabelFooter;
     // End of variables declaration//GEN-END:variables
 }

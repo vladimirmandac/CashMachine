@@ -1,8 +1,8 @@
 package cashmachine.system;
 
-import cashmachine.gui.LoginForm;
+import cashmachine.gui.LoginPanel;
 import cashmachine.gui.MainFormJFrame;
-import cashmachine.gui.UpdateSystemPanel;
+import cashmachine.gui.system.UpdateSystemPanel;
 import cashmachine.staticHelper.SingletonConnection;
 import static cashmachine.staticHelper.StaticAttributes.softwareVersion;
 import java.sql.Connection;
@@ -40,7 +40,7 @@ public class SystemUpdate {
                     }
                     
                     else {
-                        MainFormJFrame.cashMachine.changePanel(new LoginForm());
+                        MainFormJFrame.cashMachine.changePanel(new LoginPanel());
                     }
                 }
             } catch (Exception ex) {
